@@ -2,38 +2,41 @@ import React, { useState } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
-  const toggleMenu = () => setIsOpen(!isOpen);
+  const toggleMenu = () => setMenuOpen(!menuOpen);
+  const closeMenu = () => setMenuOpen(false);
 
   return (
-    <nav className="flex justify-between items-center px-10 py-4 bg-gray-900 text-white fixed top-0 w-full shadow-lg z-50">
-      <div className="text-2xl font-bold">
-        <span className="text-yellow-400">PORT</span>FOLIO
-      </div>
+    <nav className="fixed top-0 left-0 w-full bg-gray-900 text-white shadow-lg z-50">
+      <div className="flex justify-between items-center px-6 py-4">
+        <div className="text-2xl font-bold">
+          <span className="text-yellow-400">PORT</span>FOLIO
+        </div>
 
-      {/* Desktop Menu */}
-      <div className="space-x-8 text-lg hidden md:flex">
-        <a href="#home" className="hover:text-yellow-400">Home</a>
-        <a href="#academics" className="hover:text-yellow-400">Academics</a>
-        <a href="#skills" className="hover:text-yellow-400">Skills</a>
-        <a href="#projects" className="hover:text-yellow-400">Projects</a>
-        <a href="#contact" className="hover:text-yellow-400">Contact</a>
-      </div>
+        {/* Desktop links */}
+        <div className="hidden md:flex space-x-8 text-lg">
+          <a href="#home" className="hover:text-yellow-400">Home</a>
+          <a href="#academics" className="hover:text-yellow-400">Academics</a>
+          <a href="#skills" className="hover:text-yellow-400">Skills</a>
+          <a href="#projects" className="hover:text-yellow-400">Projects</a>
+          <a href="#contact" className="hover:text-yellow-400">Contact</a>
+        </div>
 
-      {/* Hamburger Icon */}
-      <div className="md:hidden text-2xl cursor-pointer" onClick={toggleMenu}>
-        {isOpen ? <FaTimes /> : <FaBars />}
+        {/* Mobile menu icon */}
+        <div className="md:hidden text-2xl cursor-pointer" onClick={toggleMenu}>
+          {menuOpen ? <FaTimes /> : <FaBars />}
+        </div>
       </div>
 
       {/* Mobile Menu */}
-      {isOpen && (
-        <div className="absolute top-16 left-0 w-full bg-gray-900 flex flex-col items-center space-y-6 py-6 md:hidden z-50">
-          <a onClick={toggleMenu} href="#home" className="hover:text-yellow-400 text-lg">Home</a>
-          <a onClick={toggleMenu} href="#academics" className="hover:text-yellow-400 text-lg">Academics</a>
-          <a onClick={toggleMenu} href="#skills" className="hover:text-yellow-400 text-lg">Skills</a>
-          <a onClick={toggleMenu} href="#projects" className="hover:text-yellow-400 text-lg">Projects</a>
-          <a onClick={toggleMenu} href="#contact" className="hover:text-yellow-400 text-lg">Contact</a>
+      {menuOpen && (
+        <div className="md:hidden flex flex-col items-center bg-gray-900 space-y-6 py-6">
+          <a onClick={closeMenu} href="#home" className="text-lg hover:text-yellow-400">Home</a>
+          <a onClick={closeMenu} href="#academics" className="text-lg hover:text-yellow-400">Academics</a>
+          <a onClick={closeMenu} href="#skills" className="text-lg hover:text-yellow-400">Skills</a>
+          <a onClick={closeMenu} href="#projects" className="text-lg hover:text-yellow-400">Projects</a>
+          <a onClick={closeMenu} href="#contact" className="text-lg hover:text-yellow-400">Contact</a>
         </div>
       )}
     </nav>
