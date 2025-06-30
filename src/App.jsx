@@ -1,6 +1,6 @@
 import Home from './components/Home'
 import About from './components/Academics'
-import Skills from './components/skills'
+import Skills from './components/Skills'
 import Projects from './components/Project'
 import Contact from './components/Contact'
 import Navbar from './components/Navbar' 
