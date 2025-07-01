@@ -5,7 +5,7 @@ import headerImage from '../assets/header_img.png';
 
 const Home = () => {
   return (
-    <section id="home" className="flex flex-col md:flex-row justify-between md:items-center px-6 md:px-20 py-16">
+    <section id="home" className="flex flex-col md:flex-row items-center justify-between px-6 md:px-20 pt-16 pb-10 md:min-h-screen">
 
       {/* Left Content */}
       <motion.div
@@ -46,7 +46,7 @@ const Home = () => {
 
       {/* Right: Astronaut Image */}
       <motion.div
-        className="md:w-1/2 flex justify-center items-center mt-10 md:mt-0"
+        className="md:w-1/2 flex justify-center items-center mt-12 md:mt-0"
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, delay: 0.3 }}
